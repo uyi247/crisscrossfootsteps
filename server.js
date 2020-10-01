@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
+const users = require("./routes/users.js");
+const comment = require("./routes/comment");
 require("dotenv").config();
 require("./config/database.js");
 
@@ -16,6 +18,9 @@ app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
+
+app.use("/api/users", users);
+app.use("/api/comment", comment);
 
 const port = process.env.PORT || 3001;
 

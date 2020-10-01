@@ -1,0 +1,9 @@
+.IncidentPage {
+  position: relative;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 300px;
+  padding: 100px;
+  padding-right: 500px;
+}
