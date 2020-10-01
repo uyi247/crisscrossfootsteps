@@ -2,3 +2,16 @@
   margin-left: 60px;
   margin-top: 50px;
 }
+
+.btn-wrap{
+  display: flex;
+}
+
+.btn-wrap button{
+  margin-right: 10px;
+}
+
+.comment-wrap{
+  display: flex;
+  justify-content: space-between;
+}

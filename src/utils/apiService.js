@@ -22,6 +22,28 @@ export function getComments() {
   });
 }
 
+export function editComment(id, text){
+  console.log("id", id)
+  console.log("text", text)
+  fetch(`${BASE_URL}comment/${id}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      text
+    })
+  }).then(res => res.json())
+  .then(data => console.log(data))
+}
+
+export function deleteComment(id){
+  fetch(`${BASE_URL}comment/${id}`, {
+    method: "DELETE"
+  }).then(res => res.json())
+  .then(data => console.log(data))
+}
+
 // export default {
 //   postComment,
 //   getComments,

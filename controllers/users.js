@@ -48,6 +48,16 @@ async function login(req, res) {
   }
 }
 
+// function getUser(req, res) {
+//   User.findById({_id: req.params.id}, (err, data) => {
+//     if(err){
+//       res.json({success: false, err})
+//     }else{
+//       res.json({success: true, data})
+//     }
+//   })
+// }
+
 function createJWT(user) {
   return jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
 }

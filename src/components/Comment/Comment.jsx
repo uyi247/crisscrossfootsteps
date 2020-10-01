@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 //import userService from "../../utils/userService";
-import { postComment, getComments } from "../../utils/apiService";
+import { postComment, getComments, editComment } from "../../utils/apiService";
 import CommentCard from "./CommentCard";
 import "./comment.css";
 
@@ -9,6 +9,8 @@ class Comment extends Component {
   state = {
     comment: "",
     commentData: [],
+    btnValue: "Post comment",
+    editId: ""
   };
 
   //   commentData = [
@@ -32,15 +34,18 @@ class Comment extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      //await userService.signup(this.state);
-      //this.props.handleSignupOrLogin();
 
-      const post = { user: this.props.user._id, text: this.state.comment };
+    const { btnValue } = this.state;
+    const {comment, editId} = this.state;
+
+    if (btnValue == "Post comment") {
+      const { _id, name } = this.props.user;
+      const post = { userId: _id, name, text: comment };
       await postComment(post);
-      this.props.history.push("/");
-    } catch (err) {
-      //this.props.updateMessage(err.message);
+      window.location.reload();
+    } else {
+      editComment(editId, comment);
+      window.location.reload();
     }
   };
 
@@ -48,7 +53,12 @@ class Comment extends Component {
     return !this.state.comment;
   }
 
+  handleEdit = (text, id) => {
+    this.setState({ btnValue: "Edit comment", comment: text, editId: id });
+  };
+
   render() {
+    console.log(this.state.commentData, "<===data");
     const commentBox = this.props.user ? (
       <div>
         <header className="header-footer">Comment here</header>
@@ -72,7 +82,7 @@ class Comment extends Component {
                 className="btn btn-default"
                 disabled={this.isFormInvalid()}
               >
-                Post comment
+                {this.state.btnValue}
               </button>
             </div>
           </div>
@@ -83,8 +93,15 @@ class Comment extends Component {
     );
 
     const comments = [];
-    this.state.commentData.forEach((item) =>
-      comments.push(<CommentCard data={item} />)
+    this.state.commentData.forEach((item, i) =>
+      comments.push(
+        <CommentCard
+          data={item}
+          handleEdit={this.handleEdit}
+          user={this.props.user}
+          key={i}
+        />
+      )
     );
 
     return (
