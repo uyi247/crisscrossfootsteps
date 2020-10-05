@@ -1,0 +1,30 @@
+.home_child_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  margin: auto;
+  width: 100vw;
+  padding-left: 20vw;
+  padding-right: 20vw;
+}
+
+.home_child_container img {
+  width: 25vw;
+  height: 60vh;
+  margin-top: 25px;
+}
+
+.home_child_container .paragraph_container {
+  display: flex;
+  flex-direction: column;
+}
+.home_child_container .paragraph_container p {
+  font-weight: 400;
+  font-style: normal;
+  color: #606060;
+  font-size: 19px;
+  padding-right: 30vw;
+  padding-left: 15px;
+ 
+}

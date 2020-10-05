@@ -1,0 +1,18 @@
+.aboutPage {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  padding-top: 55vh;
+  padding-left: 30vw;
+  padding-right: 30vw;
+}
+.aboutPage img{
+    width: 50vw;
+    height: 50vh;
+}
+.aboutPage .title{
+    text-align: center;
+    font-size: 30px;
+}

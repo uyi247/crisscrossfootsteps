@@ -10,7 +10,10 @@ import SignupPage from "./../SignupPage/Signuppage";
 import HomePage from "./../HomePage/HomePage";
 import MainPage from "./../MainPage/MainPage";
 import IncidentPage from "./../IncidentPage/IncidentPage";
-
+import BlogPage from "./../Blog/BlogPage";
+import ContactUsPage from "./../ContactUs/ContactUsPage";
+import AboutPage from "./../About/AboutPage";
+import DestinationPage from "./../Destination/DestinationPage";
 class App extends Component {
   constructor() {
     super();
@@ -50,6 +53,46 @@ class App extends Component {
             )}
           />
 
+          <Route
+            exact
+            path="/blog"
+            render={({ history }) => (
+              <BlogPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/contact"
+            render={({ history }) => (
+              <ContactUsPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/about"
+            render={({ history }) => (
+              <AboutPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/destination"
+            render={({ history }) => (
+              <DestinationPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            )}
+          />
           <Route
             exact
             path="/signup"

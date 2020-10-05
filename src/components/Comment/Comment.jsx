@@ -10,7 +10,7 @@ class Comment extends Component {
     comment: "",
     commentData: [],
     btnValue: "Post comment",
-    editId: ""
+    editId: "",
   };
 
   //   commentData = [
@@ -36,9 +36,9 @@ class Comment extends Component {
     e.preventDefault();
 
     const { btnValue } = this.state;
-    const {comment, editId} = this.state;
+    const { comment, editId } = this.state;
 
-    if (btnValue == "Post comment") {
+    if (btnValue === "Post comment") {
       const { _id, name } = this.props.user;
       const post = { userId: _id, name, text: comment };
       await postComment(post);

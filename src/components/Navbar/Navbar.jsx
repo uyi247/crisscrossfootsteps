@@ -9,10 +9,11 @@ const NavBar = (props) => {
         LOG OUT
       </Link>
       &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <span className="NavBar-welcome">WELCOME, {props.user.name}</span>
+      <span className="NavBar-welcome">Welcome {props.user.name}</span>
     </div>
   ) : (
     <div>
+      { <h1 className="page_name">Criss Cross Blog</h1>}
       <Link to="/" className="NavBar-link">
         Home
       </Link>
@@ -20,10 +21,10 @@ const NavBar = (props) => {
         Blog
       </Link>
       <Link to="/destination" className="NavBar-link">
-        Destination
+        Destinations
       </Link>
       <Link to="/incidence" className="NavBar-link">
-        Incidence
+        Miscellaneous
       </Link>
       <Link to="/about" className="NavBar-link">
         About
@@ -44,39 +45,29 @@ const NavBar = (props) => {
   let nav2 = (
     <div className="NavBar-nav2">
       <Link to="/" className="NavBar-link">
-        Home
+        My Destinations
       </Link>
       <Link to="/blog" className="NavBar-link">
-        Blog
+        Upcoming itineraries
       </Link>
       <Link to="/destination" className="NavBar-link">
-        Destination
+        Memories
       </Link>
       <Link to="/incidence" className="NavBar-link">
-        Incidence
+        Miscellaneous
       </Link>
       <Link to="/about" className="NavBar-link">
-        About
-      </Link>
-      <Link to="/contact" className="NavBar-link">
-        Contact Us
-      </Link>
-      <Link to="/login" className="NavBar-link">
-        LOG IN
-      </Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <Link to="/signup" className="NavBar-link">
-        SIGN UP
+        Blog
       </Link>
     </div>
   );
 
-  const banner = <div className="NavBar-banner"> djkdfk </div>;
+  const banner = <div className="NavBar-banner"> </div>;
   return (
     <div className="NavBar">
       {nav}
       {banner}
-      {nav2}
+      {props.user ? nav2 : null}
     </div>
   );
 };

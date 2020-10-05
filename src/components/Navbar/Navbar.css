@@ -28,7 +28,7 @@
 }
 
 .NavBar-banner {
-  height: 250px;
+  height: 400px;
   width: 100%;
   display: block;
   justify-content: center;
@@ -36,3 +36,13 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.page_name {
+  color: white;
+  position: absolute;
+  left: 20vw;
+  top: 18vh;
+
+  font-size: 160px;
+}
+
+

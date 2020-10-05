@@ -14,7 +14,7 @@ class CommentCard extends Component {
         <span style={{ fontSize: 12, margin: 0, padding: 0 }}>{date}</span>
         <div className="comment-wrap">
           <p style={{ margin: 0, padding: 0 }}>{text}</p>
-          {this.props.user.name == name && (
+          {this.props.user && this.props.user.name === name && (
             <div className="btn-wrap">
               <button onClick={() => handleEdit(text, _id)}>Edit</button>
               <button
