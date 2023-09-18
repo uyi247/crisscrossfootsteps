@@ -1,10 +1,12 @@
 const express = require("express");
-const path = require("path");
+ const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
 const users = require("./routes/users.js");
 const comment = require("./routes/comment");
-require("dotenv").config();
+  require("dotenv");
+ //require('dotenv').config({ path: '.env' });
+
 require("./config/database.js");
 
 const app = express();
